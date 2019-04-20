@@ -28,3 +28,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   在 style 标签内 $fa-font-path 是 font-awesome 的一个变量，用于制定字体路径
 - 在 style 标签内 $icon-font-path 是 bootstrap-sass 的一个变量，用于指定字体路径
 - 在使用 import 引入模块时，我们使用了 @ 符号，该别名指向的是 src 目录，你可以从 webpack 配置文件 build/webpack.base.conf.js 找到其定义
+- 局部指令
+    - 新建 `src/directives/title.js`
+    - 在任意组件中引入指令 `import title from '@/directives/title'`, `directives: {title}`
+    - `v-title=""` 使用指令
+- 路由
+    - 新建 src/router/index.js
+    - src/main.js 引入路由文件
+- 
+     
