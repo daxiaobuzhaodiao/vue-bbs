@@ -43,7 +43,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    // assetsPublicPath: '/',
+    assetsPublicPath: '/vue-bbs/dist/',       // 使用 github pages 部署项目，如果不使用 github pages，则注释掉此行，使用上一行配置
 
     /**
      * Source Maps
