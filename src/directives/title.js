@@ -41,7 +41,7 @@ function showTitle(el, title) {
   }
   
   export default {
-    // el  使用该指令的 DOM 元素
+    // el 使用该指令的 DOM 元素
     // binding.value 获取指令的值
     // vnode 虚拟节点
     bind(el, binding, vnode) {
