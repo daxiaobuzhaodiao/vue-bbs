@@ -42,7 +42,7 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: 'static', // 教程中并没有更改这个地方，是一定要更改的
     // assetsPublicPath: '/',
     assetsPublicPath: '/vue-bbs/dist/',       // 使用 github pages 部署项目，如果不使用 github pages，则注释掉此行，使用上一行配置
 
