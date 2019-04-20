@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h1>welcome to my first vue-project</h1>
+    <h1>welcome to my first vue-project from sass</h1>
     <!-- <HelloWorld/> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+// import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,5 +23,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  h1 {
+    color: #42b983;
+  }
 }
 </style>
