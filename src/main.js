@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'               // 引入 App.vue 根组件
 import router from './router/index'   // 引入路由配置文件返回的对象, 这里的 index 可以省略不写
 import './directives/index'           // 引入配置好的全局自定义指令, 这里的 index 可以省略不写
+import './components/index.js'           // 引入全局消息组件
 
 Vue.config.productionTip = false  // 设置 false 阻止 vue 在启动时生成生产提示
 
