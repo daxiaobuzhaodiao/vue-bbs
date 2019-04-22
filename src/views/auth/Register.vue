@@ -21,6 +21,7 @@
           </div>
           <div class="form-group">
             <label class="control-label">确认密码</label>
+
             <input v-model.trim="cpassword" v-validator.required="{ target: '#password' }" 
                     type="password" class="form-control" placeholder="请填写确认密码">
           </div>
@@ -62,6 +63,7 @@ export default {
   },
   // created 在实例创建完成后被立即调用，此时我们已经能访问实例的数据对象和方法了
   created() {
+    // 页面初始化  加载验证码
     this.getCaptcha()
   },
   methods: {
@@ -69,16 +71,19 @@ export default {
       // tpl captcha 必须和 createCaptcha 返回的对象 {tpl, captcha} 对应起来
       const{tpl, captcha} = createCaptcha()
       this.captchaTpl = tpl
-      this.localCaptcha = captcha
+      this.localCaptcha = captcha   // 并将验证码添加到实例的 localCaptcha
     },
 
     register(e) {
+      
       // nextTick()   ====>    https://cn.vuejs.org/v2/api/#vm-nextTick     
       // 当我们点击注册按钮后，表单验证指令有为按钮添加一个 canSubmit 的属性，但 DOM 没有立即更新，所以我们需在 $nextTick 的延迟回调里，获取更新后的元素属性，此时的 canSubmit 才是正确的值。
       this.$nextTick(() => {
         // 下方判断是为了确保 target == button 节点对象 => https://wangdoc.com/javascript/events/event.html#eventcurrenttarget%EF%BC%8Ceventtarget
         const target = e.target.type === 'submit' ? e.target : e.target.parentElement
+        
         if(target.canSubmit) {
+          console.log(target.canSubmit)
           this.submit()
         }
       })
@@ -99,7 +104,9 @@ export default {
           avatar: `https://api.adorable.io/avatars/200/${this.username}.png`
         }
         // 从 localStorage 获取用户信息
-        const localUser = ls.getItem('user')
+        // const localUser = ls.getItem('user')     加入 vuex 修改成下方写法
+        // 从仓库获取用户信息 
+        const localUser = this.$store.state.user
 
         if (localUser) {
           // 检查是否重名
@@ -116,7 +123,9 @@ export default {
     // 登陆
     login(user) {
       // 保存用户信息
-      ls.setItem('user', user)
+      // ls.setItem('user', user)       vuex 使用下方的方法
+      this.$store.dispatch('login', user)
+
       this.showMsg('注册成功', 'success')
     },
     // 弹窗提示
